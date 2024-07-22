@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('Steam Community __ Starbound.gif');
+    background-size: 1% , cover;
+    background-repeat: repeat;
+    padding: 20px;
+    font-feature-settings: "smcp", "zero";
+    
+}
+
+.CodeMirror {
+    width: 80%;
+    height: 200px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#output {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    white-space: pre-wrap;
+    /* Preserve whitespace */
+}
+
+.profile_progress_sidebar {
+    display: flex;
+    /* flex-flow: <flex-direction > <flex-wrap>;
+    The flex-flow property is a shorthand for specifying the flex-direction and flex-wrap properties.  */
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+#img1,
+#img2 {
+max-width: 100%;
+max-height: 100%;
+}
+
+#img1 {
+    height: 28vh;
+    box-sizing: border-box;
+    /* For position and targeting X-axis and Y-axis  */
+    transform: translate(-90px, -61px);
+
+}
+
+#img2 {
+    height: 70vh;
+
+}
+
+/* Font styling  */
+/*
+ 1.  header > titles 
+
+2. nav class = Navigation_Links > ul > li {home , Levels , Profile}
+
+3. div class="Itroduction-Screen"> h3 > h2 > button #START
+
+4. <div class="Levels-and-challenges"> ul > li fr 1 level to 8 level
+
+5. <div class="Interactive-code-editor"> - heading and RUN CODE button
+
+6. footer >  <p>contact me on email</p> <p>Made with ❤️ in 🇮🇳 © 2024 Code Quest: The JavaScript Journey</p> 
+
+*/
+
+/* styling list ul > li and equally doing distribution of  space */
+.Navigation_Links {
+    /* by applying display: flex; all the list items are arranged in ROW { Horizontal wise arranged } */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+/* li {home , Levels , Profile} list items */
+#button1,
+#button2,
+#button3 {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 237%;
+    margin: 50px 0px 50px 0;
+    max-width: 100%;
+    max-height: 100%;
+    -webkit-text-stroke: 1px rgb(251, 98, 112);
+}
+
+#Backgroung_Gif {
+    /* background image gif   */
+    position: absolute;
+    width: 96vw;
+    height: 185vh;
+    top: 1px;
+    margin: -2%;
+}
