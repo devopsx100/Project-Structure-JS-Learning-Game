@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quest: The JavaScript Journey</title>
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+</style>
+
+<body>
+
+    <figure>
+        <img id="Backgroung_Gif" src="Waiting 2_0.gif" alt="Background_image">
+    </figure>
+
+    <!-- •	Header Section: -->
+
+    <header>
+        <title>Code Quest: The JavaScript Journey</title>
+
+        <!-- •	Sidebar Section: -->
+
+        <nav class="profile_progress_sidebar">
+            <aside>
+                <img id="img1" src="0880838b78d375a1637963064a77e51b.png" alt="Sidebar: User profile and progress">
+            </aside>
+            <aside>
+                <img id="img2" src="f1376e095feab018140dd42d5cea334c-removebg-preview.png"
+                    alt="Achievements and badges">
+            </aside>
+        </nav>
+    </header>
+
+    <header>
+        <nav>
+            <ul class="Navigation_Links" type="none">
+                <!-- List items  -->
+                <li id="button1"><a style="color: rgb(251, 98, 112);" href="#">Home</a></li>
+                <li id="button2"><a style="color: rgb(251, 98, 112);" href="#">Levels</a></li>
+                <li id="button3"><a style="color: rgb(251, 98, 112);" href="#">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- •	Main Game Area Section: -->
+
+    <div class="Itroduction-Screen">
+        <h3>Code Quest: The JavaScript Journey</h3>
+        <h2>Welcome, Adventurer!</h2>
+        <h2>Embark on an epic quest where your coding skills are your greatest weapon. Face challenges, solve puzzles,
+            and unlock the secrets of the JavaScript world.</h2>
+        <button><a href="#">START</a></button>
+    </div>
+    <div class="Levels-and-challenges">
+        <ul type="circle">
+            <li><a href="#">Level 1: Interpreted vs Compiled Languages</a></li>
+            <li><a href="#">Level 2: Why JavaScript?</a></li>
+            <li><a href="#">Level 3: Scripting vs Compiled Languages</a></li>
+            <li><a href="#">Level 4: Strict vs Dynamic Languages</a></li>
+            <li><a href="#">Level 5: Single-Threaded Nature of JS</a></li>
+            <li><a href="#">Level 6: Simple and Complex Primitives in JS</a></li>
+            <li><a href="#">Level 7: Functions in JavaScript</a></li>
+            <li><a href="#">Level 8: Callback Functions, Event Loop, and Promises</a></li>
+        </ul>
+    </div>
+    <div class="Interactive-code-editor">
+        <h2>Interactive code editor</h2>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/codemirror.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.6/mode/javascript/javascript.min.js"></script>
+        <textarea id="code-input" placeholder="Write your JavaScript code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <div id="output"></div>
+
+        <script>
+            const codeMirrorEditor = CodeMirror.fromTextArea(document.getElementById('code-input'), {
+                lineNumbers: true,
+                mode: "javascript",
+                theme: "default"
+            });
+
+            function runCode() {
+                const code = codeMirrorEditor.getValue();
+                const outputDiv = document.getElementById('output');
+                outputDiv.textContent = ''; // Clear previous output
+
+                // Capture console.log output
+                const originalConsoleLog = console.log;
+                console.log = function (...messages) {
+                    messages.forEach(message => {
+                        if (typeof message === 'object') {
+                            outputDiv.textContent += JSON.stringify(message, null, 2) + '\n';
+                        } else {
+                            outputDiv.textContent += message + '\n';
+                        }
+                    });
+                    originalConsoleLog.apply(console, messages);
+                };
+
+                try {
+                    const result = eval(code);
+                    if (result !== undefined) {
+                        outputDiv.textContent += result + '\n';
+                    }
+                } catch (error) {
+                    outputDiv.textContent += 'Error: ' + error.message + '\n';
+                } finally {
+                    console.log = originalConsoleLog; // Restore original console.log
+                }
+            }
+        </script>
+
+
+    </div>
+
+    <!-- •	Footer Section -->
+
+    <footer style="display: inline; display: flex; justify-content: space-between; align-items: stretch; padding: 2%;">
+        <p>contact me on email</p>
+        <p>Made with ❤️ in 🇮🇳 © 2024 Code Quest: The JavaScript Journey</p>
+    </footer>
+</body>
+
+</html>
